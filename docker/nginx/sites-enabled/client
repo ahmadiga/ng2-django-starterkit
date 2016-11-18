@@ -1,0 +1,12 @@
+server {
+
+    listen 80;
+    server_name client;
+    charset utf-8;
+
+
+    location / {
+        alias /usr/src/dist/;
+    }
+
+}

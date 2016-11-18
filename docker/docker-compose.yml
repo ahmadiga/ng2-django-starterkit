@@ -1,0 +1,25 @@
+version: '2'
+services:
+  client:
+    build: ../client/
+    ports:
+      - "3000:3000"
+    links:
+      - server:server
+    volumes:
+      - ../client/:/usr/src/app/
+      - /usr/src/app/node_modules/
+    depends_on:
+      - server
+
+  server:
+    build: ../server/
+    expose:
+      - "8000"
+    ports:
+      - "8000:8000"
+    volumes:
+      - ../server/:/usr/src/app/
+    environment:
+      DEBUG: 'true'
+    command: python manage.py runserver 0.0.0.0:8000

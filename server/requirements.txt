@@ -1,0 +1,11 @@
+django
+django-anymail[mailgun]
+PyMySQL
+python-memcached
+git+git://github.com/S-Intelligent-Technologies/django-builder.git
+channels
+djangorestframework
+markdown
+django-filter
+djangorestframework-jwt
+django-cors-headers
