@@ -21,7 +21,7 @@ import {Router, NavigationStart, NavigationEnd, Event as NavigationEvent} from '
   // Every Angular template is first compiled by the browser before Angular runs it's compiler
   templateUrl: './layout.component.html',
   animations: [
-    trigger('heroState', [
+    trigger('routeAnimation', [
       state('*', style({transform: 'translateX(0)', opacity: 1})),
       transition('* => *', [
         animate(300, keyframes([
@@ -29,24 +29,23 @@ import {Router, NavigationStart, NavigationEnd, Event as NavigationEvent} from '
           style({opacity: 0, transform: 'translateX(1%)', offset: 0.3}),
           style({opacity: 1, transform: 'translateX(0)', offset: 1})
         ]))
-      ]),
-      transition('1 => 0', animate(1000, style({opacity: 0})))
+      ])
     ])
   ]
   // providers: []
 })
 export class Layout {
-  animation_flag = true;
+  animationFlag = true;
 
   constructor(public router: Router) {
 
   }
 
   ngOnInit() {
-    this.animation_flag = false;
+    this.animationFlag = false;
     this.router.events.subscribe((event: any): void => {
       if (event instanceof NavigationEnd) {
-        this.animation_flag = !this.animation_flag;
+        this.animationFlag = !this.animationFlag;
       }
     });
   }
