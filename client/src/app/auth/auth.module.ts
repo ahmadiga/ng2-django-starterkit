@@ -12,11 +12,12 @@ import {CommonModule}       from '@angular/common';
 import {SlimLoadingBarModule} from 'ng2-slim-loading-bar';
 import {ENV_PROVIDERS} from "../environment";
 import {ROUTES} from "../app.routes";
-import {Login} from "./login/login.component";
+import {Login} from "./components/login/login.component";
+import {Register} from "./components/register/register.component";
 
 @NgModule({
-  exports: [Login],
-  declarations: [Login],
+  exports: [Login, Register],
+  declarations: [Login, Register],
   imports: [ // import Angular's modules
     FormsModule,
     ReactiveFormsModule,

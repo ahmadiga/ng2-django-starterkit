@@ -27,10 +27,6 @@ import {SlimLoadingBarService} from 'ng2-slim-loading-bar';
   template: `<div><layout></layout></div>`,
 })
 export class App {
-  animation_flag = false;
-  angularclassLogo = 'assets/img/angularclass-avatar.png';
-  name = 'Angular 2 Webpack Starter';
-  url = 'https://twitter.com/AngularClass';
 
   constructor(public appState: AppState, private slimLoadingBarService: SlimLoadingBarService, public router: Router) {
 
@@ -40,11 +36,9 @@ export class App {
     this.router.events.subscribe((event: any): void => {
       this.navigationInterceptor(event);
     });
-    console.log('Initial App State', this.appState.state);
   }
 
   navigationInterceptor(event): void {
-    console.log(event);
     if (event instanceof NavigationStart) {
       this.startLoading();
     }
@@ -56,7 +50,6 @@ export class App {
 
   startLoading() {
     this.slimLoadingBarService.start(() => {
-      console.log('Loading complete');
     });
   }
 

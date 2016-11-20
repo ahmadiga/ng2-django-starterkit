@@ -7,9 +7,10 @@ import {
   transition,
   query,
   HostBinding,
-  keyframes
+  keyframes,
+  ngOnInit
 } from '@angular/core';
-import {Router, NavigationStart, NavigationEnd, Event as NavigationEvent} from '@angular/router';
+import {Router, NavigationStart, NavigationEnd} from '@angular/router';
 
 @Component({
   // The selector is what angular internally uses
@@ -34,11 +35,10 @@ import {Router, NavigationStart, NavigationEnd, Event as NavigationEvent} from '
   ]
   // providers: []
 })
-export class Layout {
+export class Layout implements ngOnInit {
   animationFlag = true;
 
   constructor(public router: Router) {
-
   }
 
   ngOnInit() {
@@ -49,5 +49,4 @@ export class Layout {
       }
     });
   }
-
 }
