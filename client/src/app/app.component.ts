@@ -8,6 +8,7 @@ import {
   state,
   animate,
   transition,
+  ViewContainerRef,
 } from '@angular/core';
 
 import {AppState} from './app.service';
@@ -28,7 +29,10 @@ import {SlimLoadingBarService} from 'ng2-slim-loading-bar';
 })
 export class App {
 
-  constructor(public appState: AppState, private slimLoadingBarService: SlimLoadingBarService, public router: Router) {
+  private viewContainerRef: ViewContainerRef;
+
+  constructor(public appState: AppState, private slimLoadingBarService: SlimLoadingBarService, public router: Router, viewContainerRef: ViewContainerRef) {
+    this.viewContainerRef = viewContainerRef;
 
   }
 

@@ -1,5 +1,6 @@
 import {Component} from '@angular/core';
 import {MainMenu} from "../main-menu/mainMenu.component";
+import {UserService} from "../../../../auth/services/user.service";
 
 @Component({
   // The selector is what angular internally uses
@@ -15,7 +16,7 @@ import {MainMenu} from "../main-menu/mainMenu.component";
 })
 export class Header {
   // TypeScript public modifiers
-  constructor() {
+  constructor(private userService: UserService) {
 
   }
 

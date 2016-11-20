@@ -21,6 +21,7 @@ import {XLarge} from './home/x-large';
 import {LayoutModule} from "./shared/layout/layout.module";
 import {LoginModule} from "./auth/auth.module";
 import {HttpClient} from "./helpers/http";
+import {UserService} from "./auth/services/user.service";
 
 // Application wide providers
 const APP_PROVIDERS = [
@@ -52,12 +53,13 @@ type StoreType = {
     HttpModule,
     RouterModule.forRoot(ROUTES, {useHash: true}),
     LayoutModule,
-    LoginModule,
+    LoginModule
   ],
   providers: [ // expose our Services and Providers into Angular's dependency injection
     ENV_PROVIDERS,
     APP_PROVIDERS,
-    HttpClient
+    HttpClient,
+    UserService
   ]
 })
 export class AppModule {

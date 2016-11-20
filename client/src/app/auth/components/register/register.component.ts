@@ -15,8 +15,7 @@ import {User} from "../../models/User";
   // Our list of styles in our component. We may add more to compose many styles together
   styleUrls: ['./register.component.css'],
   // Every Angular template is first compiled by the browser before Angular runs it's compiler
-  templateUrl: './register.component.html',
-  providers: [UserService]
+  templateUrl: './register.component.html'
 })
 export class Register {
   errors;
@@ -26,7 +25,7 @@ export class Register {
   }
 
   onSubmit() {
-    this.errors = this.userService.createUsers(JSON.stringify(this.newUser))
+    this.errors = this.userService.createUsers(this.newUser)
       .catch(this.handleError);
     console.log("model-based form submitted");
   }

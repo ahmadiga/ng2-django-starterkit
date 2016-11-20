@@ -17,6 +17,11 @@ import {Footer} from "./components/footer/footer.component";
 import {MainMenu} from "./components/main-menu/mainMenu.component";
 import {SlimLoadingBarModule} from 'ng2-slim-loading-bar';
 
+import {
+  DropdownModule,
+  AlertModule,
+  ModalModule
+} from 'ng2-bootstrap/ng2-bootstrap';
 @NgModule({
   exports: [Layout],
   declarations: [
@@ -27,7 +32,9 @@ import {SlimLoadingBarModule} from 'ng2-slim-loading-bar';
   ],
   imports: [ // import Angular's modules
     RouterModule.forRoot(ROUTES, {useHash: true}),
-    SlimLoadingBarModule.forRoot()
+    SlimLoadingBarModule.forRoot(),
+    DropdownModule,
+    ModalModule
   ],
   providers: [ // expose our Services and Providers into Angular's dependency injection
     ENV_PROVIDERS
