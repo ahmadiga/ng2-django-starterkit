@@ -17,10 +17,12 @@ const NamedModulesPlugin = require('webpack/lib/NamedModulesPlugin');
  */
 const ENV = process.env.ENV = process.env.NODE_ENV = 'development';
 const HOST = process.env.HOST || '0.0.0.0';
+const API_URL = 'http://192.168.99.100:8000/';
 const PORT = process.env.PORT || 3000;
 const HMR = helpers.hasProcessFlag('hot');
 const METADATA = webpackMerge(commonConfig({env: ENV}).metadata, {
   host: HOST,
+  API_URL: API_URL,
   port: PORT,
   ENV: ENV,
   HMR: HMR
@@ -31,7 +33,7 @@ const METADATA = webpackMerge(commonConfig({env: ENV}).metadata, {
  *
  * See: http://webpack.github.io/docs/configuration.html#cli
  */
-module.exports = function(options) {
+module.exports = function (options) {
   return webpackMerge(commonConfig({env: ENV}), {
 
     /**
@@ -112,20 +114,22 @@ module.exports = function(options) {
       new DefinePlugin({
         'ENV': JSON.stringify(METADATA.ENV),
         'HMR': METADATA.HMR,
+        'API_URL': JSON.stringify(METADATA.API_URL),
         'process.env': {
           'ENV': JSON.stringify(METADATA.ENV),
           'NODE_ENV': JSON.stringify(METADATA.ENV),
           'HMR': METADATA.HMR,
+          'API_URL': JSON.stringify(METADATA.API_URL),
         }
       }),
 
       /**
-         * Plugin: NamedModulesPlugin (experimental)
-         * Description: Uses file names as module name.
-         *
-         * See: https://github.com/webpack/webpack/commit/a04ffb928365b19feb75087c63f13cadfc08e1eb
-         */
-        new NamedModulesPlugin(),
+       * Plugin: NamedModulesPlugin (experimental)
+       * Description: Uses file names as module name.
+       *
+       * See: https://github.com/webpack/webpack/commit/a04ffb928365b19feb75087c63f13cadfc08e1eb
+       */
+      new NamedModulesPlugin(),
 
     ],
 
@@ -152,6 +156,7 @@ module.exports = function(options) {
     devServer: {
       port: METADATA.port,
       host: METADATA.host,
+      API_URL: METADATA.API_URL,
       historyApiFallback: true,
       watchOptions: {
         aggregateTimeout: 300,

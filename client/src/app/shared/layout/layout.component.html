@@ -2,11 +2,9 @@
 <div class="container">
   <header></header>
 
-  <div [@heroState]="animation_flag">
-    <main>
-      <router-outlet></router-outlet>
-    </main>
-  </div>
+  <main [@routeAnimation]="animationFlag">
+    <router-outlet></router-outlet>
+  </main>
 
   <footer>
     <span>WebPack Angular 2 Starter by <a [href]="url">@AngularClass</a></span>
