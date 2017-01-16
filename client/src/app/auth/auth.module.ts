@@ -22,7 +22,8 @@ import {Register} from "./components/register/register.component";
     FormsModule,
     ReactiveFormsModule,
     RouterModule.forRoot(ROUTES, {useHash: true}),
-    SlimLoadingBarModule.forRoot()
+    SlimLoadingBarModule.forRoot(),
+    CommonModule
   ],
   providers: [ // expose our Services and Providers into Angular's dependency injection
     ENV_PROVIDERS

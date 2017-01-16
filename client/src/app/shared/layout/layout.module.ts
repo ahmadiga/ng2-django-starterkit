@@ -34,7 +34,8 @@ import {
     RouterModule.forRoot(ROUTES, {useHash: true}),
     SlimLoadingBarModule.forRoot(),
     DropdownModule,
-    ModalModule
+    ModalModule,
+    CommonModule
   ],
   providers: [ // expose our Services and Providers into Angular's dependency injection
     ENV_PROVIDERS
